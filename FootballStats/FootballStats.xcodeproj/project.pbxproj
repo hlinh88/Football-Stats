@@ -39,6 +39,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E09BFD62AC7CF79006EEE4F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5E77CE712AC7CC5300BAA3B1 /* AppDelegate.swift */,
+				5E77CE732AC7CC5300BAA3B1 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		5E09BFD72AC7CFB9006EEE4F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5E09BFD82AC7CFC8006EEE4F /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5E09BFD82AC7CFC8006EEE4F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5E09BFD92AC7CFD2006EEE4F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		5E09BFDA2AC7CFEF006EEE4F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		5E09BFDB2AC7CFFE006EEE4F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5E77CE7D2AC7CC5500BAA3B1 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5E09BFDC2AC7D010006EEE4F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				5E09BFDE2AC7D06C006EEE4F /* Base.lproj */,
+				5E77CE752AC7CC5300BAA3B1 /* ViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		5E09BFDD2AC7D022006EEE4F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5E09BFDE2AC7D06C006EEE4F /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				5E77CE772AC7CC5300BAA3B1 /* Main.storyboard */,
+				5E77CE7F2AC7CC5500BAA3B1 /* LaunchScreen.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
 		5E77CE652AC7CC5300BAA3B1 = {
 			isa = PBXGroup;
 			children = (
@@ -58,12 +129,13 @@
 		5E77CE702AC7CC5300BAA3B1 /* FootballStats */ = {
 			isa = PBXGroup;
 			children = (
-				5E77CE712AC7CC5300BAA3B1 /* AppDelegate.swift */,
-				5E77CE732AC7CC5300BAA3B1 /* SceneDelegate.swift */,
-				5E77CE752AC7CC5300BAA3B1 /* ViewController.swift */,
-				5E77CE772AC7CC5300BAA3B1 /* Main.storyboard */,
-				5E77CE7D2AC7CC5500BAA3B1 /* Assets.xcassets */,
-				5E77CE7F2AC7CC5500BAA3B1 /* LaunchScreen.storyboard */,
+				5E09BFD62AC7CF79006EEE4F /* Application */,
+				5E09BFD72AC7CFB9006EEE4F /* Data */,
+				5E09BFD92AC7CFD2006EEE4F /* Extension */,
+				5E09BFDA2AC7CFEF006EEE4F /* Repository */,
+				5E09BFDB2AC7CFFE006EEE4F /* Resources */,
+				5E09BFDC2AC7D010006EEE4F /* Scenes */,
+				5E09BFDD2AC7D022006EEE4F /* Utils */,
 				5E77CE822AC7CC5500BAA3B1 /* Info.plist */,
 				5E77CE7A2AC7CC5300BAA3B1 /* FootballStats.xcdatamodeld */,
 			);
