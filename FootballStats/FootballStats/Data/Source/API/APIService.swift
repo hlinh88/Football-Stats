@@ -15,7 +15,7 @@ final class APIService {
     
     func request <T: Codable> (url: String,
                                method: HTTPMethod,
-                               parameters: [String: Any],
+                               parameters: [String: Any] = [:],
                                headers: HTTPHeaders,
                                completion: @escaping (T?, Error?) -> Void) {
         AF.request(url, method: method, parameters: parameters, encoding: URLEncoding.default, headers: headers)
