@@ -8,8 +8,12 @@
 import Foundation
 import Alamofire
 
-class Constants {
-    static var APIKey: String?
-    static var APINewsHost: String?
-    static var APIFootballHost: String?
+final class Constants {
+    static var APIKey = ""
+    static var APINewsHost = ""
+    static var APIFootballHost = ""
+
+    static var newsCellHeight = 200
+    static var newsCellExtraHeight = 100
+    static var cornerRadius = 10
 }

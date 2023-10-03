@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsViewController" customModule="FootballStats" customModuleProvider="target">
             <connections>
+                <outlet property="logoImageView" destination="7gE-QQ-z4E" id="wqu-rE-5YK"/>
+                <outlet property="newsCollectionView" destination="eEn-Wb-AdV" id="Jr7-V4-mk6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,8 +19,47 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hkx-RN-ilr">
+                    <rect key="frame" x="0.0" y="59" width="393" height="80"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7gE-QQ-z4E">
+                            <rect key="frame" x="121.66666666666669" y="0.0" width="150" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="150" id="zn4-oV-PWU"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="7gE-QQ-z4E" firstAttribute="centerX" secondItem="hkx-RN-ilr" secondAttribute="centerX" id="8dA-tv-yvN"/>
+                        <constraint firstAttribute="bottom" secondItem="7gE-QQ-z4E" secondAttribute="bottom" id="Lt1-Sp-GbB"/>
+                        <constraint firstItem="7gE-QQ-z4E" firstAttribute="top" secondItem="hkx-RN-ilr" secondAttribute="top" id="Sjh-jZ-jIT"/>
+                        <constraint firstAttribute="height" constant="80" id="TP4-28-GmJ"/>
+                        <constraint firstItem="7gE-QQ-z4E" firstAttribute="centerY" secondItem="hkx-RN-ilr" secondAttribute="centerY" id="lM0-RC-rAS"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eEn-Wb-AdV">
+                    <rect key="frame" x="0.0" y="139" width="393" height="679"/>
+                    <color key="backgroundColor" red="0.19215686269999999" green="0.015686274510000001" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="o3k-6C-VPF">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.19215686274509802" green="0.015686274509803921" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="eEn-Wb-AdV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0HQ-hm-Rjz"/>
+                <constraint firstItem="hkx-RN-ilr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AM1-Tl-wU5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eEn-Wb-AdV" secondAttribute="bottom" id="VkK-Ur-DvN"/>
+                <constraint firstItem="hkx-RN-ilr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZB2-kc-dLJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hkx-RN-ilr" secondAttribute="trailing" id="gya-gP-72g"/>
+                <constraint firstItem="eEn-Wb-AdV" firstAttribute="top" secondItem="hkx-RN-ilr" secondAttribute="bottom" id="nUP-dP-S9n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eEn-Wb-AdV" secondAttribute="trailing" id="nl7-qn-MVN"/>
+            </constraints>
             <point key="canvasLocation" x="132" y="-11"/>
         </view>
     </objects>

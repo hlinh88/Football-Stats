@@ -14,8 +14,9 @@ final class TabBarController: UITabBarController {
         let standingVC = UINavigationController(rootViewController: StandingViewController())
         let statsVC = UINavigationController(rootViewController: StatsViewController())
         let favouriteVC = UINavigationController(rootViewController: FavouriteViewController())
+        let scheduleVC = UINavigationController(rootViewController: ScheduleViewController())
 
-        let controllers = [newsVC, standingVC, statsVC, favouriteVC]
+        let controllers = [newsVC, standingVC, scheduleVC, statsVC, favouriteVC]
 
         self.setViewControllers(controllers, animated: false)
 
@@ -25,14 +26,12 @@ final class TabBarController: UITabBarController {
     private func configTabBar() {
         guard let items = self.tabBar.items else { return }
 
-        let images = ["newspaper", "123.rectangle", "chart.bar.xaxis", "heart.circle"]
-        let selectedImages = ["newspaper.fill", "123.rectangle.fill", "chart.bar.xaxis", "heart.circle.fill"]
-        let titles = ["News", "Standing", "Stats", "Favourite"]
+        let tabBarInfo = TabBarInfo()
 
         for index in 0...(items.count-1) {
-            items[index].image = UIImage(systemName: images[index])
-            items[index].selectedImage = UIImage(systemName: selectedImages[index])
-            items[index].title = titles[index]
+            items[index].image = UIImage(systemName: tabBarInfo.images[index])
+            items[index].selectedImage = UIImage(systemName: tabBarInfo.selectedImages[index])
+            items[index].title = tabBarInfo.titles[index]
         }
 
         self.tabBar.backgroundColor = UIColor.white

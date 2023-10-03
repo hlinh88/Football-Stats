@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  FootballStats
+
+  Created by Hoang Linh Nguyen on 3/10/2023.
+  
+*/
+"imageNewspaper" = "newspaper";
+"imageStanding" = "123.rectangle";
+"imageSchedule" = "calendar.circle";
+"imageStats" = "chart.bar.xaxis";
+"imageFavourite" = "heart.circle";
+
+"selectedNewspaper" = "newspaper.fill";
+"selectedStanding" = "123.rectangle.fill";
+"selectedSchedule" = "calendar.circle.fill";
+"selectedStats" = "chart.bar.xaxis";
+"selectedFavourite" = "heart.circle.fill";
+
+"newspaper" = "Newspaper";
+"standing" = "Standing";
+"schedule" = "Schedule";
+"stats" = "Stats";
+"favourite" = "Favourite";
