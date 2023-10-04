@@ -16,15 +16,29 @@ final class NewsViewController: UIViewController {
     @IBOutlet private weak var newsCollectionView: UICollectionView!
 
     private let newsViewModel = NewsViewModel()
+    private let newsRepository = NewsRepositoryImpl()
     private let disposeBag = DisposeBag()
     private let noOfCellsInRow = 2
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getNews()
         logoImageView.image = ImageAssets.leagueLogo.image
         newsCollectionView.delegate = self
         registerCell()
         bindingCollectionView()
+    }
+
+    func getNews() {
+        newsRepository.requestNews(completion: { (news: [News]?, error: Error?) in
+            if error != nil {
+                guard let errorMessage = error?.localizedDescription else { return }
+                print(errorMessage)
+            } else {
+                guard let news else { return }
+                self.newsViewModel.news.accept(self.newsViewModel.news.value + news)
+            }
+        })
     }
 
     private func registerCell() {

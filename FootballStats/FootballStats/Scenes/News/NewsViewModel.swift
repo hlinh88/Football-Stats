@@ -10,14 +10,12 @@ import Alamofire
 import RxSwift
 import RxRelay
 
-final class NewsViewModel: NSObject {
+final class NewsViewModel {
     let news = BehaviorRelay<[News]>(value: [])
 
     private let newsRepository = NewsRepositoryImpl()
 
-    override init() {
-        super.init()
-        news.accept(self.news.value + CreateNewsData.createNewsData())
-//        news.accept(self.news.value + newsRepository.requestNews())
+    init() {
+        
     }
 }

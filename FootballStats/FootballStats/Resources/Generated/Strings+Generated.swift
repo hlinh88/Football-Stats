@@ -25,8 +25,8 @@ internal enum StringAssets {
   internal static let imageStanding = StringAssets.tr("Localizable", "imageStanding", fallback: "123.rectangle")
   /// chart.bar.xaxis
   internal static let imageStats = StringAssets.tr("Localizable", "imageStats", fallback: "chart.bar.xaxis")
-  /// Newspaper
-  internal static let newspaper = StringAssets.tr("Localizable", "newspaper", fallback: "Newspaper")
+  /// News
+  internal static let newspaper = StringAssets.tr("Localizable", "newspaper", fallback: "News")
   /// Schedule
   internal static let schedule = StringAssets.tr("Localizable", "schedule", fallback: "Schedule")
   /// heart.circle.fill
