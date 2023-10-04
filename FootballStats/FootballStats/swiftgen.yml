@@ -12,7 +12,7 @@ xcassets:
     - templateName: swift5
       output: Resources/Generated/Assets+Generated.swift
       params:
-        enumName: ImageAssets
+        enumName: Assets
 
 ## Generate constants for your storyboards and XIBs.
 ##   This one generates 2 output files, one containing the storyboard scenes, and another for the segues.

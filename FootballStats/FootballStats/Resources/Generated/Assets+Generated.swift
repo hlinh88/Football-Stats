@@ -23,10 +23,15 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 // MARK: - Asset Catalogs
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
-internal enum ImageAssets {
+internal enum Assets {
   internal static let accentColor = ColorAsset(name: "AccentColor")
+  internal static let gradient1 = ColorAsset(name: "gradient1")
+  internal static let gradient2 = ColorAsset(name: "gradient2")
+  internal static let gradient3 = ColorAsset(name: "gradient3")
+  internal static let gradient4 = ColorAsset(name: "gradient4")
   internal static let leagueLogo = ImageAsset(name: "leagueLogo")
   internal static let logo = ImageAsset(name: "logo")
+  internal static let mainColor = ColorAsset(name: "mainColor")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

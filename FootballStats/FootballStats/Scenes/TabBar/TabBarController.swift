@@ -6,20 +6,11 @@
 //
 
 import UIKit
+import Reusable
 
-final class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController, NibLoadable {
     override func viewDidLoad() {
-        super.viewDidLoad()
-        let newsVC = UINavigationController(rootViewController: NewsViewController())
-        let standingVC = UINavigationController(rootViewController: StandingViewController())
-        let statsVC = UINavigationController(rootViewController: StatsViewController())
-        let favouriteVC = UINavigationController(rootViewController: FavouriteViewController())
-        let scheduleVC = UINavigationController(rootViewController: ScheduleViewController())
-
-        let controllers = [newsVC, standingVC, scheduleVC, statsVC, favouriteVC]
-
-        self.setViewControllers(controllers, animated: false)
-
+        super.viewDidLoad() 
         configTabBar()
     }
 
@@ -35,14 +26,6 @@ final class TabBarController: UITabBarController {
         }
 
         self.tabBar.backgroundColor = UIColor.white
-        self.tabBar.tintColor = UIColor.mainColor
-    }
-
-    class func instantiateFromNib() -> TabBarController {
-        let nib = UINib(nibName: "TabBarController", bundle: nil)
-        if let tabBarVC = nib.instantiate(withOwner: nil, options: nil).first as? TabBarController {
-            return tabBarVC
-        }
-        return TabBarController()
+        self.tabBar.tintColor = Assets.mainColor.color
     }
 }

@@ -9,13 +9,33 @@ import UIKit
 import Alamofire
 import RxSwift
 import RxRelay
+import RxCocoa
+import RxSwiftUtilities
 
-final class NewsViewModel {
-    let news = BehaviorRelay<[News]>(value: [])
+struct NewsViewModel {
+    var useCase: NewsUseCaseType
+    let navigator: NewsNavigatorType
+}
 
-    private let newsRepository = NewsRepositoryImpl()
+extension NewsViewModel: ViewModelType {
+    struct Input {
+        let loadTrigger: Driver<Void>
+    }
 
-    init() {
-        
+    struct Output {
+        let news: Driver<[News]>
+        let indicator: Driver<Bool>
+    }
+
+    func transform(_ input: Input, disposeBag: DisposeBag) -> Output {
+        let indicator = ActivityIndicator()
+
+        let news = input.loadTrigger
+            .flatMapLatest { _ in
+                return self.useCase.getNews()
+                    .trackActivity(indicator)
+                    .asDriver(onErrorJustReturn: [])
+            }
+        return Output(news: news, indicator: indicator.asDriver())
     }
 }

@@ -9,60 +9,52 @@ import UIKit
 import Alamofire
 import RxSwift
 import RxCocoa
+import Reusable
 
-final class NewsViewController: UIViewController {
-
+final class NewsViewController: UIViewController, BindableType {
     @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet private weak var newsCollectionView: UICollectionView!
 
-    private let newsViewModel = NewsViewModel()
-    private let newsRepository = NewsRepositoryImpl()
+    var viewModel: NewsViewModel!
     private let disposeBag = DisposeBag()
     private let noOfCellsInRow = 2
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getNews()
-        logoImageView.image = ImageAssets.leagueLogo.image
+        logoImageView.image = Assets.leagueLogo.image
         newsCollectionView.delegate = self
         registerCell()
-        bindingCollectionView()
-    }
-
-    func getNews() {
-        newsRepository.requestNews(completion: { (news: [News]?, error: Error?) in
-            if error != nil {
-                guard let errorMessage = error?.localizedDescription else { return }
-                print(errorMessage)
-            } else {
-                guard let news else { return }
-                self.newsViewModel.news.accept(self.newsViewModel.news.value + news)
-            }
-        })
     }
 
     private func registerCell() {
-        let nib = UINib(nibName: String(describing: NewsCollectionViewCell.self), bundle: nil)
-        self.newsCollectionView.register(nib, forCellWithReuseIdentifier: NewsCollectionViewCell.identifier)
+        self.newsCollectionView.register(cellType: NewsCollectionViewCell.self)
     }
 
-    private func bindingCollectionView() {
-        newsViewModel.news.asDriver()
+    func bindViewModel() {
+        let loadTrigger = Driver.just(())
+
+        let input = NewsViewModel.Input(loadTrigger: loadTrigger)
+    
+        let output = viewModel.transform(input, disposeBag: disposeBag)
+
+        output.news
             .drive(newsCollectionView.rx.items) { collectionView, row, new in
                 let indexPath = IndexPath(row: row, section: 0)
-                guard let cell =
-                        collectionView.dequeueReusableCell(withReuseIdentifier: NewsCollectionViewCell.identifier, for: indexPath) as? NewsCollectionViewCell
-                else { return UICollectionViewCell() }
+                let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: NewsCollectionViewCell.self)
                 cell.configCell(thisNew: new)
                 return cell
             }
+            .disposed(by: disposeBag)
+
+        output.indicator
+            .drive(rx.isLoading)
             .disposed(by: disposeBag)
     }
 }
 
 extension NewsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
         guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return CGSize() }
 
         let totalSpace = flowLayout.sectionInset.left

@@ -10,8 +10,9 @@ import Foundation
 struct League: Codable {
     var name: String
     var standings: [[Standing]]
-
+    
     enum CodingKeys: String, CodingKey {
-        case name, standings
+        case name
+        case standings
     }
 }

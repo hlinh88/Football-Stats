@@ -1,5 +1,5 @@
 //
-//  Teams.swift
+//  Goals.swift
 //  FootballStats
 //
 //  Created by Hoang Linh Nguyen on 2/10/2023.
@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct Teams: Codable {
-    var home: Team
-    var away: Team
+struct Goals: Codable {
+    var home: Int
+    var away: Int
 
     enum CodingKeys: String, CodingKey {
-        case home, away
+        case home
+        case away
     }
 }

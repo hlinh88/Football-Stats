@@ -8,18 +8,9 @@
 import Foundation
 
 struct TopPlayersResponse: Codable {
-    var response: [TopPlayerResponse]
+    var response: [TopPlayer]
 
     enum CodingKeys: String, CodingKey {
         case response
-    }
-}
-
-struct TopPlayerResponse: Codable {
-    var player: Player
-    var statistics: [Statistic]
-
-    enum CodingKeys: String, CodingKey {
-        case player, statistics
     }
 }
