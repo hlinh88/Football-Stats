@@ -8,5 +8,7 @@ target 'FootballStats' do
   # Pods for FootballStats
 	pod 'Alamofire', '~> 5.8.0'
 	pod 'SDWebImage', '~> 5.0'
-
+	pod 'RxSwift', '~> 6.6.0'
+	pod 'RxCocoa', '~> 6.6.0'
+	pod 'RxRelay', '~> 6.6.0'
 end
