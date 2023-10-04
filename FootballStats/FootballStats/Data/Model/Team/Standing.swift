@@ -10,8 +10,15 @@ import Foundation
 struct Standing: Codable {
     var rank: Int
     var team: Team
+    var points: Int
+    var goalsDiff: Int
+    var all: MatchStats
 
     enum CodingKeys: String, CodingKey {
-        case rank, team
+        case rank
+        case team
+        case points
+        case goalsDiff
+        case all
     }
 }

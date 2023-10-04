@@ -11,8 +11,10 @@ struct Player: Codable {
     var id: Int
     var name: String
     var photo: String
-
+    
     enum CodingKeys: String, CodingKey {
-        case id, name, photo
+        case id
+        case name
+        case photo
     }
 }

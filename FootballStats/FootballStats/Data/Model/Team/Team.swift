@@ -11,8 +11,10 @@ struct Team: Codable {
     var id: Int
     var name: String
     var logo: String
-
+    
     enum CodingKeys: String, CodingKey {
-        case id, name, logo
+        case id
+        case name
+        case logo
     }
 }

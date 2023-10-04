@@ -13,6 +13,8 @@ struct News: Codable {
     var img: String
 
     enum CodingKeys: String, CodingKey {
-        case title, url, img
+        case title
+        case url
+        case img
     }
 }

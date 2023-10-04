@@ -12,6 +12,8 @@ final class Constants {
     static var APIKey = ""
     static var APINewsHost = ""
     static var APIFootballHost = ""
+    static var season = "2023"
+    static var leagueId = "39"
 
     static var newsCellHeight = 200
     static var newsCellExtraHeight = 100

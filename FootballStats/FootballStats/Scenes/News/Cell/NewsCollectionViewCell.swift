@@ -7,13 +7,13 @@
 
 import UIKit
 import SDWebImage
+import Reusable
 
-class NewsCollectionViewCell: UICollectionViewCell {
+class NewsCollectionViewCell: UICollectionViewCell, NibReusable {
     @IBOutlet private weak var newsView: UIView!
     @IBOutlet private weak var cellImageView: UIImageView!
     @IBOutlet private weak var cellTitleLabel: UILabel!
-
-    static var identifier = String(describing: NewsCollectionViewCell.self)
+    
     private var newsUrl = ""
 
     override func awakeFromNib() {
