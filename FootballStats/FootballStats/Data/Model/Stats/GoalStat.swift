@@ -1,5 +1,5 @@
 //
-//  Statistic.swift
+//  GoalStat.swift
 //  FootballStats
 //
 //  Created by Hoang Linh Nguyen on 2/10/2023.
@@ -7,10 +7,12 @@
 
 import Foundation
 
-struct Statistic: Codable {
-    var goals: Goal
+struct GoalStat: Codable {
+    var total: Int
+    var assists: Int?
 
     enum CodingKeys: String, CodingKey {
-        case goals
+        case total
+        case assists
     }
 }

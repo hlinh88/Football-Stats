@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Reusable
+import Then
 
 final class ScheduleViewController: UIViewController, BindableType {
     @IBOutlet private weak var matchWeekView: UIView!
@@ -42,23 +43,31 @@ final class ScheduleViewController: UIViewController, BindableType {
                 cell.configCell(thisSchedule: schedule)
                 return cell
             }.disposed(by: disposeBag)
+
+        output.indicator
+            .drive(rx.isLoading)
+            .disposed(by: disposeBag)
     }
 
     private func customizeView() {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.colors = [Assets.gradient1.color.cgColor,
-                           Assets.gradient2.color.cgColor,
-                           Assets.gradient3.color.cgColor,
-                           Assets.gradient4.color.cgColor]
-        gradient.locations = [0.0, 1.0]
-        gradient.startPoint = CGPoint(x: 0, y: 0.5)
-        gradient.endPoint = CGPoint(x: 1, y: 0.5)
-        gradient.frame = matchWeekView.bounds
-        matchWeekView.layer.insertSublayer(gradient, at: 0)
-        gradient.cornerRadius = CGFloat(Constants.cornerRadius)
-        gradient.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        matchWeekView.layer.cornerRadius = CGFloat(Constants.cornerRadius)
-        matchWeekView.clipsToBounds = true
-        matchWeekView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        let gradient = CAGradientLayer().then {
+            $0.colors = [Assets.gradientBlue1.color.cgColor,
+                         Assets.gradientBlue2.color.cgColor,
+                         Assets.gradientBlue3.color.cgColor,
+                         Assets.gradientBlue4.color.cgColor]
+            $0.locations = [0.0, 1.0]
+            $0.startPoint = CGPoint(x: 0, y: 0.5)
+            $0.endPoint = CGPoint(x: 1, y: 0.5)
+            $0.frame = matchWeekView.bounds
+            $0.cornerRadius = CGFloat(Constants.cornerRadius)
+            $0.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        }
+
+        matchWeekView.do {
+            $0.layer.insertSublayer(gradient, at: 0)
+            $0.layer.cornerRadius = CGFloat(Constants.cornerRadius)
+            $0.clipsToBounds = true
+            $0.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        }
     }
 }

@@ -18,4 +18,7 @@ final class Constants {
     static var newsCellHeight = 200
     static var newsCellExtraHeight = 100
     static var cornerRadius = 10
+    static var statsCellHeight = 180
+    static var noOfCellsInRow = 2
+    static var emptyString = ""
 }

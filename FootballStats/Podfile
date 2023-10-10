@@ -14,4 +14,5 @@ target 'FootballStats' do
 	pod 'RxSwiftUtilities', '~> 2.2.0'
  	pod 'MBProgressHUD'
 	pod 'Reusable', '~> 4.1.2'
+	pod 'Then', '~> 3.0.0'
 end
