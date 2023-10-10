@@ -39,5 +39,9 @@ final class StandingViewController: UIViewController, BindableType {
                 cell.configCell(thisStanding: standing)
                 return cell
             }.disposed(by: disposeBag)
+
+        output.indicator
+            .drive(rx.isLoading)
+            .disposed(by: disposeBag)
     }
 }

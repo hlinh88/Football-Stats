@@ -17,7 +17,7 @@ final class NewsViewController: UIViewController, BindableType {
 
     var viewModel: NewsViewModel!
     private let disposeBag = DisposeBag()
-    private let noOfCellsInRow = 2
+    private let noOfCellsInRow = Constants.noOfCellsInRow
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,9 @@ final class NewsViewController: UIViewController, BindableType {
 }
 
 extension NewsViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, 
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return CGSize() }
 

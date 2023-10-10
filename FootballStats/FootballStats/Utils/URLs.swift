@@ -12,6 +12,6 @@ struct Endpoints {
     private static var footballDomain = "https://api-football-v1.p.rapidapi.com"
     public static var APINewsBaseURL = newsDomain + "/news/espn"
     public static var APITeamRankingURL = footballDomain + "/v3/standings"
-    public static var APITopPlayer = footballDomain + "/v3/players/"
     public static var APIFixtureTwoDate = footballDomain + "/v3/fixtures"
+    public static var APIStats = footballDomain + "/v3/players/"
 }

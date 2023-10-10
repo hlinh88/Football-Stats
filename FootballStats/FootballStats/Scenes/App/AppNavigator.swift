@@ -28,7 +28,7 @@ struct AppNavigator: AppNavigatorType {
         let newsVC = setUpNewsController()
         let standingVC = setUpStandingController()
         let scheduleVC = setUpScheduleController()
-        let statsVC = UINavigationController(rootViewController: StatsViewController())
+        let statsVC = setUpStatsController()
         let favouriteVC = UINavigationController(rootViewController: FavouriteViewController())
 
         let controllers = [newsVC, standingVC, scheduleVC, statsVC, favouriteVC]
@@ -61,5 +61,15 @@ struct AppNavigator: AppNavigatorType {
         let viewModel = ScheduleViewModel(useCase: useCase, navigator: navigator)
         viewController.bindViewModel(to: viewModel)
         return UINavigationController(rootViewController: viewController)
+    }
+
+    private func setUpStatsController() -> UINavigationController {
+        let viewController = StatsViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        let navigator = StatsNavigator(navigationController: navigationController)
+        let useCase = StatsUseCase()
+        let viewModel = StatsViewModel(useCase: useCase, navigator: navigator)
+        viewController.bindViewModel(to: viewModel)
+        return navigationController
     }
 }
