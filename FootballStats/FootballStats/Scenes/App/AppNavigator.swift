@@ -29,7 +29,7 @@ struct AppNavigator: AppNavigatorType {
         let standingVC = setUpStandingController()
         let scheduleVC = setUpScheduleController()
         let statsVC = setUpStatsController()
-        let favouriteVC = UINavigationController(rootViewController: FavouriteViewController())
+        let favouriteVC = setUpFavouriteController()
 
         let controllers = [newsVC, standingVC, scheduleVC, statsVC, favouriteVC]
 
@@ -38,11 +38,12 @@ struct AppNavigator: AppNavigatorType {
 
     private func setUpNewsController() -> UINavigationController {
         let viewController = NewsViewController()
-        let navigator = NewsNavigator()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        let navigator = NewsNavigator(navigationController: navigationController)
         let useCase = NewsUseCase()
         let viewModel = NewsViewModel(useCase: useCase, navigator: navigator)
         viewController.bindViewModel(to: viewModel)
-        return UINavigationController(rootViewController: viewController)
+        return navigationController
     }
 
     private func setUpStandingController() -> UINavigationController {
@@ -69,6 +70,16 @@ struct AppNavigator: AppNavigatorType {
         let navigator = StatsNavigator(navigationController: navigationController)
         let useCase = StatsUseCase()
         let viewModel = StatsViewModel(useCase: useCase, navigator: navigator)
+        viewController.bindViewModel(to: viewModel)
+        return navigationController
+    }
+
+    private func setUpFavouriteController() -> UINavigationController {
+        let viewController = FavouriteViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        let navigator = FavouriteNavigator(navigationController: navigationController)
+        let useCase = FavouriteUseCase()
+        let viewModel = FavouriteViewModel(useCase: useCase, navigator: navigator)
         viewController.bindViewModel(to: viewModel)
         return navigationController
     }

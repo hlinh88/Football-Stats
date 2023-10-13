@@ -11,6 +11,7 @@ import RxCocoa
 
 final class DetailViewController: UIViewController, BindableType {
     @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet private weak var followButton: UIButton!
     @IBOutlet private weak var playerNameTitleLabel: UILabel!
     @IBOutlet private weak var playerNameLabel: UILabel!
     @IBOutlet private weak var positionLabel: UILabel!
@@ -26,6 +27,11 @@ final class DetailViewController: UIViewController, BindableType {
     var viewModel: DetailViewModel!
     private let disposeBag = DisposeBag()
     private let noOfCellsInRow = Constants.noOfCellsInRow
+    var isFollow = false
+    private var id: Int?
+    private var thisStat: Stats?
+    private let saveFavouriteTrigger = PublishSubject<Stats>()
+    private let deleteFavouriteTrigger = PublishSubject<Int>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +56,9 @@ final class DetailViewController: UIViewController, BindableType {
     func bindViewModel() {
         let input = DetailViewModel.Input(
             loadTrigger: Driver.just(()),
-            backTrigger: backButton.rx.tap.asDriver()
+            backTrigger: backButton.rx.tap.asDriver(),
+            saveFavouriteTrigger: saveFavouriteTrigger.asDriver(onErrorDriveWith: .empty()),
+            deleteFavouriteTrigger: deleteFavouriteTrigger.asDriver(onErrorDriveWith: .empty())
         )
         let output = viewModel.transform(input, disposeBag: disposeBag)
 
@@ -67,9 +75,29 @@ final class DetailViewController: UIViewController, BindableType {
             }
             .disposed(by: disposeBag)
 
+        output.isFollow
+            .drive(followButtonBinding)
+            .disposed(by: disposeBag)
+
+        output.saveFavourite
+            .drive()
+            .disposed(by: disposeBag)
+
+        output.deleteFavourite
+            .drive()
+            .disposed(by: disposeBag)
+
         output.indicator
             .drive(rx.isLoading)
             .disposed(by: disposeBag)
+    }
+
+    @IBAction func handleFollowButton(_ sender: UIButton) {
+        guard let id = self.id,
+              let thisStat = self.thisStat else { return }
+        isFollow ? deleteFavouriteTrigger.onNext(id) : saveFavouriteTrigger.onNext(thisStat)
+        isFollow.toggle()
+        self.configFollowButton()
     }
 }
 
@@ -77,6 +105,9 @@ extension DetailViewController {
     private var statsBinding: Binder<Stats> {
         return Binder(self) { viewController, stat in
             viewController.do {
+                $0.id = stat.player.id
+                $0.thisStat = stat
+                $0.followButton.layer.cornerRadius = CGFloat(Constants.cornerRadius)
                 $0.playerNameTitleLabel.text = stat.player.name
                 $0.playerNameLabel.text = stat.player.name
                 $0.nationalityLabel.text = stat.player.nationality
@@ -90,6 +121,22 @@ extension DetailViewController {
                     $0.clubImageView.sd_setImage(with: URL(string: statistics.team.logo), completed: nil)
                 }
             }
+        }
+    }
+
+    private var followButtonBinding: Binder<Bool> {
+        return Binder(self) { viewController, isFollow in
+            viewController.do {
+                $0.isFollow = isFollow
+                $0.configFollowButton()
+            }
+        }
+    }
+
+    private func configFollowButton() {
+        self.do {
+            $0.followButton.backgroundColor = isFollow ? UIColor.lightGray : Assets.mainColor.color
+            $0.followButton.setTitle(isFollow ? "Following" : "Follow", for: .normal)
         }
     }
 }

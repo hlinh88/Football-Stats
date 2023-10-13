@@ -20,6 +20,7 @@ struct NewsViewModel {
 extension NewsViewModel: ViewModelType {
     struct Input {
         let loadTrigger: Driver<Void>
+        let selectTrigger: Driver<IndexPath>
     }
 
     struct Output {
@@ -36,6 +37,16 @@ extension NewsViewModel: ViewModelType {
                     .trackActivity(indicator)
                     .asDriver(onErrorJustReturn: [])
             }
+
+        input.selectTrigger
+            .withLatestFrom(news) { indexPath, new in
+                return new[indexPath.row]
+            }
+            .drive(onNext: { new in
+                self.navigator.pushToSafari(urlString: new.url)
+            })
+            .disposed(by: disposeBag)
+
         return Output(news: news, indicator: indicator.asDriver())
     }
 }

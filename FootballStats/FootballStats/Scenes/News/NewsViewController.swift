@@ -31,10 +31,12 @@ final class NewsViewController: UIViewController, BindableType {
     }
 
     func bindViewModel() {
-        let loadTrigger = Driver.just(())
+        
+        let input = NewsViewModel.Input(
+            loadTrigger: Driver.just(()),
+            selectTrigger: newsCollectionView.rx.itemSelected.asDriver()
+        )
 
-        let input = NewsViewModel.Input(loadTrigger: loadTrigger)
-    
         let output = viewModel.transform(input, disposeBag: disposeBag)
 
         output.news

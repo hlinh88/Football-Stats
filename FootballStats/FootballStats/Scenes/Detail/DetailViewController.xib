@@ -16,6 +16,7 @@
                 <outlet property="backButton" destination="ftO-qr-DBO" id="xuf-Mu-Mym"/>
                 <outlet property="clubImageView" destination="7ca-iF-DeO" id="i3O-Qk-3Uy"/>
                 <outlet property="dobLabel" destination="GjL-lT-0wV" id="kVU-iE-Lxb"/>
+                <outlet property="followButton" destination="FfB-y6-Re6" id="Omi-rg-EX0"/>
                 <outlet property="heightLabel" destination="QcW-G6-1Gy" id="4BM-pw-oFX"/>
                 <outlet property="nationalityLabel" destination="efS-3N-bxe" id="pQw-rv-si9"/>
                 <outlet property="playerImageView" destination="pu4-FH-m2w" id="bt7-94-7BJ"/>
@@ -97,6 +98,21 @@
                                                 <constraint firstAttribute="width" secondItem="pu4-FH-m2w" secondAttribute="height" multiplier="1:1" id="wXH-Vf-AD6"/>
                                             </constraints>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfB-y6-Re6">
+                                            <rect key="frame" x="10" y="205" width="100" height="30"/>
+                                            <color key="backgroundColor" name="mainColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="vK1-eS-k8Y"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Follow"/>
+                                            <connections>
+                                                <action selector="handleFollowButton:" destination="-1" eventType="touchUpInside" id="Y6C-1J-0g8"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
@@ -106,8 +122,10 @@
                                         <constraint firstAttribute="bottom" secondItem="pu4-FH-m2w" secondAttribute="bottom" id="F4S-FO-JJq"/>
                                         <constraint firstItem="7ca-iF-DeO" firstAttribute="top" secondItem="vxK-kL-Hxe" secondAttribute="bottom" constant="10" id="QSd-6a-Wip"/>
                                         <constraint firstItem="7ca-iF-DeO" firstAttribute="leading" secondItem="46q-TW-pjv" secondAttribute="leading" constant="10" id="orG-IA-5AZ"/>
+                                        <constraint firstItem="FfB-y6-Re6" firstAttribute="leading" secondItem="46q-TW-pjv" secondAttribute="leading" constant="10" id="sQY-Bn-66m"/>
                                         <constraint firstItem="vxK-kL-Hxe" firstAttribute="leading" secondItem="46q-TW-pjv" secondAttribute="leading" constant="10" id="v1s-9l-4g7"/>
                                         <constraint firstItem="m4F-yT-WHN" firstAttribute="leading" secondItem="46q-TW-pjv" secondAttribute="leading" constant="10" id="vUg-2L-165"/>
+                                        <constraint firstAttribute="bottom" secondItem="FfB-y6-Re6" secondAttribute="bottom" constant="15" id="wA4-VX-dmJ"/>
                                         <constraint firstAttribute="height" constant="250" id="yRr-YU-O8j"/>
                                     </constraints>
                                 </view>

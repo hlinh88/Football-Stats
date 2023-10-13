@@ -1,3 +1,4 @@
 Pods/
 Podfile.lock
 .swiftlint.yml
+.DS_Store
