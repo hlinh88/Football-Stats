@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/hlinhxd/Desktop/Football-Stats/FootballStats/FootballStats/Data/Source/Local/Favourite+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/hlinhxd/Desktop/Football-Stats/FootballStats/FootballStats/Data/Source/Local/Favourite+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:FootballStats.xcodeproj">
    </FileRef>
    <FileRef

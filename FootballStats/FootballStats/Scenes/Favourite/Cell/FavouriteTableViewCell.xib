@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavouriteTableViewCell" rowHeight="206" id="KGk-i7-Jjw" customClass="FavouriteTableViewCell" customModule="FootballStats" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="587" height="206"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="587" height="206"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UVB-Xh-iNP">
+                        <rect key="frame" x="15" y="10" width="557" height="186"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkf-hd-3hW">
+                                <rect key="frame" x="15.000000000000007" y="15" width="122.66666666666669" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <color key="textColor" name="mainColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F5h-26-IJU">
+                                <rect key="frame" x="15" y="44" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="F5g-de-7lm"/>
+                                    <constraint firstAttribute="width" secondItem="F5h-26-IJU" secondAttribute="height" multiplier="1:1" id="deo-KD-N9e"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qad-yR-QDd">
+                                <rect key="frame" x="371" y="15" width="171" height="171"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qad-yR-QDd" secondAttribute="height" multiplier="1:1" id="a1V-a9-hp1"/>
+                                    <constraint firstAttribute="width" secondItem="Qad-yR-QDd" secondAttribute="height" multiplier="1:1" id="vVx-lA-q65"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xC2-H0-caw">
+                                <rect key="frame" x="15" y="153" width="51" height="28"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Remove">
+                                    <color key="titleColor" name="mainColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleRemoveButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="woy-bu-3LP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXT-xw-Qh8">
+                                <rect key="frame" x="65" y="56.333333333333321" width="291" height="15.666666666666664"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                <color key="textColor" name="mainColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qad-yR-QDd" firstAttribute="top" secondItem="UVB-Xh-iNP" secondAttribute="top" constant="15" id="C8o-KZ-5OJ"/>
+                            <constraint firstItem="F5h-26-IJU" firstAttribute="top" secondItem="gkf-hd-3hW" secondAttribute="bottom" constant="5" id="FGy-im-xfE"/>
+                            <constraint firstItem="xC2-H0-caw" firstAttribute="leading" secondItem="UVB-Xh-iNP" secondAttribute="leading" constant="15" id="Quh-OJ-0vu"/>
+                            <constraint firstItem="F5h-26-IJU" firstAttribute="leading" secondItem="UVB-Xh-iNP" secondAttribute="leading" constant="15" id="UPP-eI-n01"/>
+                            <constraint firstItem="Qad-yR-QDd" firstAttribute="leading" secondItem="yXT-xw-Qh8" secondAttribute="trailing" constant="15" id="aIK-YN-PN0"/>
+                            <constraint firstItem="yXT-xw-Qh8" firstAttribute="leading" secondItem="F5h-26-IJU" secondAttribute="trailing" constant="10" id="ei5-be-wNx"/>
+                            <constraint firstAttribute="bottom" secondItem="xC2-H0-caw" secondAttribute="bottom" constant="5" id="fen-yH-Gr1"/>
+                            <constraint firstItem="gkf-hd-3hW" firstAttribute="top" secondItem="UVB-Xh-iNP" secondAttribute="top" constant="15" id="heB-L2-3uj"/>
+                            <constraint firstAttribute="trailing" secondItem="Qad-yR-QDd" secondAttribute="trailing" constant="15" id="lLg-vE-pmk"/>
+                            <constraint firstAttribute="bottom" secondItem="Qad-yR-QDd" secondAttribute="bottom" id="pNo-Xk-ai8"/>
+                            <constraint firstItem="gkf-hd-3hW" firstAttribute="leading" secondItem="UVB-Xh-iNP" secondAttribute="leading" constant="15" id="qVm-dt-FTa"/>
+                            <constraint firstItem="yXT-xw-Qh8" firstAttribute="centerY" secondItem="gkf-hd-3hW" secondAttribute="bottom" constant="25" id="zh7-2e-aRQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="mainColor"/>
+                <constraints>
+                    <constraint firstItem="UVB-Xh-iNP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="CjL-lc-CR4"/>
+                    <constraint firstAttribute="trailing" secondItem="UVB-Xh-iNP" secondAttribute="trailing" constant="15" id="IDF-Fb-gZf"/>
+                    <constraint firstAttribute="bottom" secondItem="UVB-Xh-iNP" secondAttribute="bottom" constant="10" id="Tjb-P8-DHZ"/>
+                    <constraint firstItem="UVB-Xh-iNP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="W31-jz-lXG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="clubLogoImageView" destination="F5h-26-IJU" id="Vte-nt-RHz"/>
+                <outlet property="clubNameLabel" destination="yXT-xw-Qh8" id="7hp-Uk-t4s"/>
+                <outlet property="favouriteView" destination="UVB-Xh-iNP" id="WNb-Hj-ZWf"/>
+                <outlet property="playerImageView" destination="Qad-yR-QDd" id="zAj-v3-9WC"/>
+                <outlet property="playerNameLabel" destination="gkf-hd-3hW" id="eo5-6B-2yw"/>
+                <outlet property="removeButton" destination="xC2-H0-caw" id="IP6-7E-8Tb"/>
+            </connections>
+            <point key="canvasLocation" x="295.41984732824426" y="45.774647887323944"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="mainColor">
+            <color red="0.19215686274509805" green="0.015686274509803921" blue="0.22352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
